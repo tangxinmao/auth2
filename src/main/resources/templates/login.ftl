@@ -4,7 +4,7 @@
 </head>
 <body>
 	<div class="container">
-		<form role="form" action="login" method="post">
+		<form role="form" action="login" >
 		  <div class="form-group">
 		    <label for="username">Username1:</label>
 		    <input type="text" class="form-control" id="username" name="username"/>
@@ -13,7 +13,7 @@
 		    <label for="password">Password1:</label>
 		    <input type="password" class="form-control" id="password" name="password"/>
 		  </div>
-		  <input type="hidden" id="csrf_token" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+		  <#--<input type="hidden" id="csrf_token" name="${_csrf.parameterName}" value="${_csrf.token}"/>-->
 		  <button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</div>
