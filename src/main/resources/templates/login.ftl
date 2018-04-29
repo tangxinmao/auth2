@@ -1,10 +1,10 @@
 <html>
 <head>
-<link rel="stylesheet" href="css/wro.css"/>
+<#--<link rel="stylesheet" href="css/wro.css"/>-->
 </head>
 <body>
 	<div class="container">
-		<form role="form" action="login" >
+		<form role="form" action="login" method="post">
 		  <div class="form-group">
 		    <label for="username">Username1:</label>
 		    <input type="text" class="form-control" id="username" name="username"/>
@@ -17,6 +17,6 @@
 		  <button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</div>
-	<script src="js/wro.js" type="text/javascript"></script>
+	<#--<script src="js/wro.js" type="text/javascript"></script>-->
 </body>
 </html>
