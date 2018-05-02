@@ -12,7 +12,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
@@ -26,7 +25,7 @@ import java.security.KeyPair;
 
 @SpringBootApplication
 @EnableAuthorizationServer
-public class DemoApplication   implements WebMvcConfigurer,ResourceServerConfigurer,AuthorizationServerConfigurer,WebSecurityConfigurer{
+public class DemoApplication implements WebMvcConfigurer, ResourceServerConfigurer, AuthorizationServerConfigurer, WebSecurityConfigurer {
     @Autowired
     private AuthenticationManagerBuilder authenticationManagerBuilder;
 
@@ -44,14 +43,12 @@ public class DemoApplication   implements WebMvcConfigurer,ResourceServerConfigu
         converter.setKeyPair(keyPair);
         return converter;
     }
+
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/oauth/confirm_access").setViewName("authorize");
     }
-
-
-
 
 
     @Override
@@ -74,7 +71,6 @@ public class DemoApplication   implements WebMvcConfigurer,ResourceServerConfigu
         authorizationServerEndpointsConfigurer.authenticationManager(authenticationManagerBuilder.build()).accessTokenConverter(
                 jwtAccessTokenConverter());
     }
-
 
 
     @Override
